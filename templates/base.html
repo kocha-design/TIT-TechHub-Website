@@ -42,32 +42,13 @@
         </div>
     {% endif %}
 
+    <!-- ... Juu ni content ... -->
+    
     {% block content %}
     {% endblock %}
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>{{ settings.site_name|default:"TIT TechHub" }}</h3>
-                <p>{{ settings.footer_text|default:"Innovate • Develop • Grow" }}</p>
-            </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                {% if settings.contact_email %}<p>Email: {{ settings.contact_email }}</p>{% endif %}
-                {% if settings.contact_phone %}<p>Phone: {{ settings.contact_phone }}</p>{% endif %}
-                {% if settings.office_address %}<p>{{ settings.office_address }}</p>{% endif %}
-            </div>
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                {% if settings.facebook_link %}<a href="{{ settings.facebook_link }}"><i class="fab fa-facebook"></i></a>{% endif %}
-                {% if settings.linkedin_link %}<a href="{{ settings.linkedin_link }}"><i class="fab fa-linkedin"></i></a>{% endif %}
-                {% if settings.twitter_link %}<a href="{{ settings.twitter_link }}"><i class="fab fa-twitter"></i></a>{% endif %}
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; {% now "Y" %} {{ settings.site_name|default:"TIT TechHub" }}. All rights reserved.</p>
-        </div>
-    </footer>
+    <!-- Weka Footer Mpya Hapa -->
+    {% include 'includes/footer.html' %}
 
     <script src="{% static 'js/main.js' %}"></script>
 </body>

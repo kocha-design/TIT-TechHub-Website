@@ -1,0 +1,73 @@
+{% load static %}
+<footer class="site-footer">
+    <div class="footer-container">
+        
+        <!-- Sehemu ya 1: Kuhusu Kampuni -->
+        <div class="footer-col brand-col">
+            <h2 class="footer-logo">{{ settings.site_name|default:"TIT TechHub" }}</h2>
+            <p class="footer-tagline">{{ settings.footer_text|default:"Innovate • Develop • Grow" }}</p>
+            <p class="footer-desc">Empowering businesses through accessible, innovative, and reliable technology solutions.</p>
+        </div>
+
+        <!-- Sehemu ya 2: Viungo vya Haraka (Quick Links) -->
+        <div class="footer-col links-col">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="{% url 'home' %}"><i class="fas fa-chevron-right"></i> Home</a></li>
+                <li><a href="{% url 'about' %}"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                <li><a href="{% url 'services' %}"><i class="fas fa-chevron-right"></i> Services</a></li>
+                <li><a href="{% url 'contact' %}"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Sehemu ya 3: Huduma (Services) -->
+        <div class="footer-col links-col">
+            <h3>Our Services</h3>
+            <ul>
+                <li><a href="{% url 'services' %}"><i class="fas fa-chevron-right"></i> Software Development</a></li>
+                <li><a href="{% url 'services' %}"><i class="fas fa-chevron-right"></i> Web Development</a></li>
+                <li><a href="{% url 'services' %}"><i class="fas fa-chevron-right"></i> Mobile Apps</a></li>
+                <li><a href="{% url 'services' %}"><i class="fas fa-chevron-right"></i> IT Consultancy</a></li>
+            </ul>
+        </div>
+
+        <!-- Sehemu ya 4: Mawasiliano na Mitandao ya Kijamii -->
+        <div class="footer-col contact-col">
+            <h3>Get In Touch</h3>
+            <ul class="contact-info">
+                {% if settings.office_address %}
+                <li><i class="fas fa-map-marker-alt"></i> <span>{{ settings.office_address }}</span></li>
+                {% endif %}
+                
+                {% if settings.contact_phone %}
+                <li><i class="fas fa-phone-alt"></i> <span>{{ settings.contact_phone }}</span></li>
+                {% endif %}
+                
+                {% if settings.contact_email %}
+                <li><i class="fas fa-envelope"></i> <span>{{ settings.contact_email }}</span></li>
+                {% endif %}
+            </ul>
+
+            <!-- Social Media Icons -->
+            <div class="footer-socials">
+                {% if settings.facebook_link %}<a href="{{ settings.facebook_link }}" target="_blank"><i class="fab fa-facebook-f"></i></a>{% endif %}
+                {% if settings.twitter_link %}<a href="{{ settings.twitter_link }}" target="_blank"><i class="fab fa-twitter"></i></a>{% endif %}
+                {% if settings.linkedin_link %}<a href="{{ settings.linkedin_link }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>{% endif %}
+                <a href="mailto:{{ settings.contact_email }}"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Copyright Section -->
+    <div class="footer-bottom">
+        <div class="footer-bottom-content">
+            <p>&copy; {% now "Y" %} {{ settings.site_name|default:"TIT TechHub" }}. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <span>|</span>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
