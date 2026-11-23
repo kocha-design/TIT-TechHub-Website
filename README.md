@@ -1,4 +1,4 @@
-# TIT TechHub Website 
+
 # TIT TechHub - Official Website
 
 ![TIT TechHub Logo](https://raw.githubusercontent.com/your-username/tit-techhub-website/main/static/images/logo.png) 
@@ -164,4 +164,4 @@ Ensure you set the environment variables in the hosting provider's dashboard (do
 
     Location: Dar es Salaam, Tanzania
 
-Built by the TIT TechHub Team.
+Built wby the TIT TechHub Team.
