@@ -5,15 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}TIT TechHub{% endblock %}</title>
+    
+    <!-- Favicon -->
     {% if settings.favicon %}
         <link rel="icon" type="image/png" href="{{ settings.favicon.url }}">
     {% endif %}
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome kwa icons -->
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome kwa Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+
+    <!-- ================= NAVBAR ================= -->
     <nav class="navbar">
         <div class="logo-container">
             {% if settings.logo %}
@@ -21,11 +30,12 @@
                     <img src="{{ settings.logo.url }}" alt="{{ settings.site_name }}" class="logo">
                 </a>
             {% else %}
-                <a href="{% url 'home' %}" style="font-weight: bold; font-size: 1.5rem; color: var(--dark-blue);">
+                <a href="{% url 'home' %}" style="font-weight: 800; font-size: 1.5rem; color: var(--dark-blue); text-decoration: none;">
                     {{ settings.site_name|default:"TIT TechHub" }}
                 </a>
             {% endif %}
         </div>
+        
         <ul class="nav-links">
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'about' %}">About Us</a></li>
@@ -34,22 +44,27 @@
         </ul>
     </nav>
 
-    {% if messages %}
-        <div class="messages-container">
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-            {% endfor %}
-        </div>
-    {% endif %}
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content-wrapper">
+        <!-- Alert Messages (Success/Error) -->
+        {% if messages %}
+            <div class="messages-container">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
 
-    <!-- ... Juu ni content ... -->
-    
-    {% block content %}
-    {% endblock %}
+        <!-- Hapa ndipo kurasa zote (Home, About, Services, Contact) zinaingia -->
+        {% block content %}
+        {% endblock %}
+    </main>
 
-    <!-- Weka Footer Mpya Hapa -->
+    <!-- ================= FOOTER ================= -->
     {% include 'includes/footer.html' %}
 
+    <!-- ================= JAVASCRIPT ================= -->
     <script src="{% static 'js/main.js' %}"></script>
+    
 </body>
 </html>

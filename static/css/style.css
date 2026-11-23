@@ -90,7 +90,7 @@ body {
     align-items: center;
     justify-content: center;
     /* Weka picha nzuri ya kisasa hapa kama background ya default */
-    background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; */
+    background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; */ 
     overflow: hidden;
 }
 
@@ -858,5 +858,195 @@ footer {
     .footer-bottom-content {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+/* =========================================
+   MODERN CONTACT PAGE & FORM
+   ========================================= */
+
+.contact-section-modern {
+    padding: 100px 10%;
+    background: #f8f9fa;
+    /* Hii inazuia nafasi tupu chini ya footer */
+    min-height: calc(100vh - 400px); 
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(10, 28, 62, 0.08);
+    overflow: hidden;
+}
+
+/* Upande wa Kushoto (Maelezo) */
+.contact-info-panel {
+    background: linear-gradient(135deg, var(--dark-blue) 0%, #112d5c 100%);
+    padding: 60px 40px;
+    color: white;
+}
+
+.contact-info-panel h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.contact-info-panel > p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: var(--primary-blue);
+    flex-shrink: 0;
+}
+
+.info-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.info-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Upande wa Kulia (Fomu) */
+.contact-form-panel {
+    padding: 60px;
+}
+
+.contact-form-panel h2 {
+    color: var(--dark-blue);
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.modern-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 15px;
+    border: 2px solid #e1e5ea;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
+}
+
+.btn-submit {
+    background: var(--primary-blue);
+    color: white;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background: var(--dark-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(10, 28, 62, 0.2);
+}
+
+/* =========================================
+   KUREKEBISHA BODY NA FOOTER (Kuzuia White Space)
+   ========================================= */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Hii inasukuma footer chini kabisa ikiwa content ni ndogo */
+.main-content-wrapper { 
+    flex: 1; 
+}
+
+/* Responsive za Contact Page */
+@media (max-width: 900px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+    .contact-form-panel {
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    .contact-info-panel {
+        padding: 40px 30px;
     }
 }
