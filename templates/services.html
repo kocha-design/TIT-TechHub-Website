@@ -1,15 +1,111 @@
 {% extends 'base.html' %}
 
+{% block title %}Our Services | {{ settings.site_name }}{% endblock %}
+
 {% block content %}
-<div style="padding: 50px 10%;">
-    <h1>Our Services</h1>
-    <ul style="margin-top: 20px; line-height: 2;">
-        <li>Website Development</li>
-        <li>Mobile Application Development</li>
-        <li>Software Development</li>
-        <li>UI/UX Design</li>
-        <li>IT Consultancy & AI Solutions</li>
-        <!-- Weka services zingine hapa -->
-    </ul>
-</div>
+
+<!-- Services Header -->
+<section class="page-header">
+    <div class="page-header-content">
+        <h1>Our Services</h1>
+        <p>Comprehensive technology solutions tailored to your needs</p>
+    </div>
+</section>
+
+<!-- Core Services -->
+{% if core_services %}
+<section class="services-section">
+    <div class="section-title">
+        <h2>Core Technology Services</h2>
+        <p>What we do best</p>
+    </div>
+    <div class="services-grid">
+        {% for service in core_services %}
+        <div class="service-card">
+            {% if service.icon_class %}
+            <div class="service-icon">
+                <i class="{{ service.icon_class }}"></i>
+            </div>
+            {% endif %}
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<!-- Partner / Additional Services -->
+{% if partner_services %}
+<section class="services-section partner-services-section">
+    <div class="section-title">
+        <h2>Additional Services</h2>
+        <p>Delivered through qualified specialists and partners</p>
+    </div>
+    <div class="services-grid">
+        {% for service in partner_services %}
+        <div class="service-card partner-card">
+            {% if service.icon_class %}
+            <div class="service-icon">
+                <i class="{{ service.icon_class }}"></i>
+            </div>
+            {% endif %}
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<!-- Target Market -->
+{% if target_markets %}
+<section class="target-market-section">
+    <div class="section-title">
+        <h2>Who We Serve</h2>
+        <p>We work with a wide range of clients</p>
+    </div>
+    <div class="target-grid">
+        {% for market in target_markets %}
+        <div class="target-item">
+            <i class="fas fa-check-circle"></i>
+            <span>{{ market.name }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<!-- Our Approach -->
+{% if approach_steps %}
+<section class="approach-section">
+    <div class="section-title">
+        <h2>Our Approach</h2>
+        <p>A proven process from idea to delivery</p>
+    </div>
+    <div class="approach-timeline">
+        {% for step in approach_steps %}
+        <div class="approach-step">
+            <div class="step-number">{{ step.step_number }}</div>
+            <div class="step-content">
+                <h3>{{ step.title }}</h3>
+                {% if step.description %}
+                <p>{{ step.description }}</p>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="cta-content">
+        <h2>Have a Project in Mind?</h2>
+        <p>Let's discuss how we can help you achieve your goals.</p>
+        <a href="{% url 'contact' %}" class="btn-contact cta-btn">Start Your Project</a>
+    </div>
+</section>
+
 {% endblock %}

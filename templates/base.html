@@ -4,33 +4,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIT TechHub | Innovate. Develop. Grow.</title>
-    <!-- Tumia Google Fonts kwa muonekano wa kimataifa -->
+    <title>{% block title %}TIT TechHub{% endblock %}</title>
+    {% if settings.favicon %}
+        <link rel="icon" type="image/png" href="{{ settings.favicon.url }}">
+    {% endif %}
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome kwa icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo-container">
-            <img src="{% static 'images/logo.png' %}" alt="TIT TechHub Logo" class="logo">
+            {% if settings.logo %}
+                <a href="{% url 'home' %}">
+                    <img src="{{ settings.logo.url }}" alt="{{ settings.site_name }}" class="logo">
+                </a>
+            {% else %}
+                <a href="{% url 'home' %}" style="font-weight: bold; font-size: 1.5rem; color: var(--dark-blue);">
+                    {{ settings.site_name|default:"TIT TechHub" }}
+                </a>
+            {% endif %}
         </div>
         <ul class="nav-links">
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'about' %}">About Us</a></li>
             <li><a href="{% url 'services' %}">Services</a></li>
-            <li><a href="#contact" class="btn-contact">Contact Us</a></li>
+            <li><a href="{% url 'contact' %}" class="btn-contact">Contact Us</a></li>
         </ul>
     </nav>
 
-    <!-- Content ya kurasa tofauti itaingia hapa -->
+    {% if messages %}
+        <div class="messages-container">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
     {% block content %}
     {% endblock %}
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 TIT TechHub. All rights reserved.</p>
-        <p>Email: tittechhub.official@gmail.com</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>{{ settings.site_name|default:"TIT TechHub" }}</h3>
+                <p>{{ settings.footer_text|default:"Innovate • Develop • Grow" }}</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                {% if settings.contact_email %}<p>Email: {{ settings.contact_email }}</p>{% endif %}
+                {% if settings.contact_phone %}<p>Phone: {{ settings.contact_phone }}</p>{% endif %}
+                {% if settings.office_address %}<p>{{ settings.office_address }}</p>{% endif %}
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                {% if settings.facebook_link %}<a href="{{ settings.facebook_link }}"><i class="fab fa-facebook"></i></a>{% endif %}
+                {% if settings.linkedin_link %}<a href="{{ settings.linkedin_link }}"><i class="fab fa-linkedin"></i></a>{% endif %}
+                {% if settings.twitter_link %}<a href="{{ settings.twitter_link }}"><i class="fab fa-twitter"></i></a>{% endif %}
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; {% now "Y" %} {{ settings.site_name|default:"TIT TechHub" }}. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="{% static 'js/main.js' %}"></script>

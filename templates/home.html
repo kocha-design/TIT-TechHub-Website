@@ -1,11 +1,26 @@
 {% extends 'base.html' %}
+{% block title %}{{ settings.site_name }} | {{ home.hero_title }}{% endblock %}
 
 {% block content %}
-<section class="hero">
-    <div>
-        <h1>Innovate. Develop. Grow.</h1>
-        <p>We build world-class software, websites, and mobile applications to scale your business globally.</p>
-        <a href="{% url 'services' %}" class="btn-contact" style="font-size: 1.2rem; padding: 15px 30px;">Explore Our Services</a>
+<section class="hero-modern">
+    <!-- Overlay ya giza ili maandishi yaonekane -->
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-container">
+        <div class="hero-glass-card">
+            <span class="hero-badge">🚀 Welcome to {{ settings.site_name }}</span>
+            <h1>{{ home.hero_title }}</h1>
+            <p>{{ home.hero_subtitle }}</p>
+            
+            <div class="hero-buttons">
+                <a href="{{ home.hero_button_link }}" class="btn-primary">
+                    {{ home.hero_button_text }} <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="{% url 'contact' %}" class="btn-secondary">
+                    Talk to Us
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}

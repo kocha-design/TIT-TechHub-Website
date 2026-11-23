@@ -1,11 +1,112 @@
 {% extends 'base.html' %}
 
+{% block title %}About Us | {{ settings.site_name }}{% endblock %}
+
 {% block content %}
-<div style="padding: 50px 10%;">
-    <h1>About TIT TechHub</h1>
-    <p style="margin-top: 20px; line-height: 1.8;">
-        TIT TechHub is a technology services company focused on developing innovative digital solutions...
-        <!-- Weka maelezo mengine kutoka kwenye Company Profile hapa -->
-    </p>
-</div>
+
+<!-- About Header Section -->
+<section class="page-header">
+    <div class="page-header-content">
+        <h1>{{ about.title|default:"About Us" }}</h1>
+        <p>{{ settings.footer_text|default:"Innovate • Develop • Grow" }}</p>
+    </div>
+</section>
+
+<!-- Company Overview Section -->
+<section class="about-overview-section">
+    <div class="about-grid">
+        <div class="about-text">
+            <h2>Who We Are</h2>
+            <p>{{ about.company_overview|linebreaks }}</p>
+
+            {% if about.mission %}
+            <div class="about-block">
+                <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                <p>{{ about.mission|linebreaks }}</p>
+            </div>
+            {% endif %}
+
+            {% if about.vision %}
+            <div class="about-block">
+                <h3><i class="fas fa-eye"></i> Our Vision</h3>
+                <p>{{ about.vision|linebreaks }}</p>
+            </div>
+            {% endif %}
+        </div>
+
+        {% if about.image %}
+        <div class="about-image">
+            <img src="{{ about.image.url }}" alt="About {{ settings.site_name }}">
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Core Values Section -->
+{% if core_values %}
+<section class="core-values-section">
+    <div class="section-title">
+        <h2>Our Core Values</h2>
+        <p>The principles that guide everything we do</p>
+    </div>
+    <div class="values-grid">
+        {% for value in core_values %}
+        <div class="value-card">
+            {% if value.icon_class %}
+            <div class="value-icon">
+                <i class="{{ value.icon_class }}"></i>
+            </div>
+            {% endif %}
+            <h3>{{ value.title }}</h3>
+            <p>{{ value.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<!-- Team Section -->
+{% if team_members %}
+<section class="team-section">
+    <div class="section-title">
+        <h2>Meet Our Team</h2>
+        <p>Passionate professionals behind {{ settings.site_name }}</p>
+    </div>
+    <div class="team-grid">
+        {% for member in team_members %}
+        <div class="team-card">
+            <div class="team-photo">
+                {% if member.photo %}
+                    <img src="{{ member.photo.url }}" alt="{{ member.name }}">
+                {% else %}
+                    <div class="team-photo-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                {% endif %}
+            </div>
+            <h3>{{ member.name }}</h3>
+            <p class="team-role">{{ member.role }}</p>
+            {% if member.bio %}
+            <p class="team-bio">{{ member.bio }}</p>
+            {% endif %}
+            {% if member.linkedin %}
+            <a href="{{ member.linkedin }}" target="_blank" class="team-linkedin">
+                <i class="fab fa-linkedin"></i> Connect
+            </a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="cta-content">
+        <h2>Ready to Work With Us?</h2>
+        <p>Let's build something great together.</p>
+        <a href="{% url 'contact' %}" class="btn-contact cta-btn">Get In Touch</a>
+    </div>
+</section>
+
 {% endblock %}

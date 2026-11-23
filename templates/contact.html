@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Contact Us | {{ settings.site_name }}{% endblock %}
+
+{% block content %}
+<section class="contact-section">
+    <h1>Get In Touch</h1>
+    <p>Have a project in mind? Let's talk.</p>
+    <div class="contact-container">
+        <form method="POST" class="contact-form">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn-contact">Send Message</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
