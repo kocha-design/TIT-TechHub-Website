@@ -2,23 +2,46 @@
 {% block title %}{{ settings.site_name }} | {{ home.hero_title }}{% endblock %}
 
 {% block content %}
-<section class="hero-modern">
-    <!-- Overlay ya giza ili maandishi yaonekane -->
-    <div class="hero-overlay"></div>
-    
-    <div class="hero-container">
-        <div class="hero-glass-card">
-            <span class="hero-badge">🚀 Welcome to {{ settings.site_name }}</span>
-            <h1>{{ home.hero_title }}</h1>
-            <p>{{ home.hero_subtitle }}</p>
-            
-            <div class="hero-buttons">
-                <a href="{{ home.hero_button_link }}" class="btn-primary">
-                    {{ home.hero_button_text }} <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="{% url 'contact' %}" class="btn-secondary">
-                    Talk to Us
-                </a>
+<!-- ================= HERO SECTION ================= -->
+<section class="hero-centered">
+    <div class="hero-bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </div>
+
+    <div class="hero-content-centered">
+        <!-- Badge ndogo juu -->
+        <span class="hero-subtitle-badge">INNOVATIVE • SCALABLE • RELIABLE</span>
+        
+        <!-- Kichwa Kikubwa -->
+        <h1 class="hero-main-title">{{ home.hero_title|default:"Complete Technology Solutions for Modern Organizations" }}</h1>
+        
+        <!-- Maelezo -->
+        <p class="hero-description">{{ home.hero_subtitle|default:"We deliver software development, web & mobile apps, IT consultancy, and AI integration from one technology partner." }}</p>
+        
+        <!-- Vitufe -->
+        <div class="hero-cta-buttons">
+            <a href="{% url 'contact' %}" class="btn-solid">Request a Consultation</a>
+            <a href="{{ home.hero_button_link|default:'/services/' }}" class="btn-outline">Explore Our Services</a>
+        </div>
+
+        <!-- Stats Section (Namba) -->
+        <div class="hero-stats">
+            <div class="stat-box">
+                <h3>50+</h3>
+                <p>Projects</p>
+            </div>
+            <div class="stat-box">
+                <h3>8+</h3>
+                <p>Services</p>
+            </div>
+            <div class="stat-box">
+                <h3>7+</h3>
+                <p>Industries</p>
+            </div>
+            <div class="stat-box">
+                <h3>Global</h3>
+                <p>Reach</p>
             </div>
         </div>
     </div>
