@@ -25,24 +25,17 @@
             <a href="{{ home.hero_button_link|default:'/services/' }}" class="btn-outline">Explore Our Services</a>
         </div>
 
-        <!-- Stats Section (Namba) -->
+        <!-- Stats Section (Inadhibitiwa na Admin) -->
+        {% if stats %}
         <div class="hero-stats">
+            {% for stat in stats %}
             <div class="stat-box">
-                <h3>50+</h3>
-                <p>Projects</p>
+                <h3>{{ stat.value }}</h3>
+                <p>{{ stat.title }}</p>
             </div>
-            <div class="stat-box">
-                <h3>8+</h3>
-                <p>Services</p>
-            </div>
-            <div class="stat-box">
-                <h3>7+</h3>
-                <p>Industries</p>
-            </div>
-            <div class="stat-box">
-                <h3>Global</h3>
-                <p>Reach</p>
-            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
         </div>
     </div>
 </section>

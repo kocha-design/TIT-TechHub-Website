@@ -1,15 +1,19 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import SiteSettings, HomePage, ContactMessage
+from .models import SiteSettings, HomePage, ContactMessage, Stat # Ongeza Stat hapa
 
 def home(request):
     site_settings = SiteSettings.objects.first()
     home_content = HomePage.objects.first()
+    stats = Stat.objects.all() # Ongeza hii
+    
     context = {
         'settings': site_settings,
         'home': home_content,
+        'stats': stats, # Ongeza hii
     }
     return render(request, 'home.html', context)
+
 
 def contact(request):
     site_settings = SiteSettings.objects.first()

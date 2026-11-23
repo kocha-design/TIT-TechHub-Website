@@ -1,10 +1,9 @@
 from django.contrib import admin
-from .models import SiteSettings, HomePage, ContactMessage
+from .models import SiteSettings, HomePage, ContactMessage, Stat
 
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
-        # Zuia kuongeza zaidi ya moja
         if SiteSettings.objects.exists():
             return False
         return True
@@ -22,3 +21,9 @@ class ContactMessageAdmin(admin.ModelAdmin):
     list_filter = ('is_read', 'created_at')
     search_fields = ('name', 'email', 'subject')
     readonly_fields = ('name', 'email', 'subject', 'message', 'created_at')
+
+@admin.register(Stat)
+class StatAdmin(admin.ModelAdmin):
+    list_display = ('title', 'value', 'order')   # Tumehamisha title mbele
+    list_editable = ('value', 'order')           # value sasa sio ya kwanza
+    list_display_links = ('title',)              # title iwe ndio link ya kufungua

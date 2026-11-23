@@ -56,3 +56,17 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.subject}"
+    
+class Stat(models.Model):
+    """Hii inadhibiti Namba za Stats kwenye Home Page"""
+    title = models.CharField(max_length=50, help_text="Mfano: Projects, Services, n.k.")
+    value = models.CharField(max_length=20, help_text="Mfano: 50+, 8+, Global, n.k.")
+    order = models.IntegerField(default=0, help_text="Mpangilio wake kuanzia kushoto")
+
+    class Meta:
+        ordering = ['order']
+        verbose_name = "Stat"
+        verbose_name_plural = "Stats"
+
+    def __str__(self):
+        return f"{self.value} {self.title}"
