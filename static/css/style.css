@@ -285,169 +285,313 @@ body {
     font-size: 1.1rem;
 }
 
-/* ========== ABOUT PAGE ========== */
+/* =========================================
+   PREMIUM ABOUT PAGE STYLES
+   ========================================= */
+
+/* Subtitle ndogo juu ya Vichwa */
+.section-subtitle {
+    display: block;
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* 1. ABOUT OVERVIEW SECTION */
 .about-overview-section {
-    padding: 80px 10%;
+    padding: 100px 10%;
     background: white;
 }
+
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 80px;
     align-items: center;
-}
-.about-text h2 {
-    font-size: 2.2rem;
-    color: var(--dark-blue);
-    margin-bottom: 20px;
-}
-.about-text > p {
-    line-height: 1.9;
-    color: #555;
-    margin-bottom: 30px;
-}
-.about-block {
-    margin-top: 30px;
-    padding: 25px;
-    background: var(--light-bg);
-    border-left: 4px solid var(--primary-blue);
-    border-radius: 8px;
-}
-.about-block h3 {
-    color: var(--dark-blue);
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.about-block h3 i {
-    color: var(--primary-blue);
-}
-.about-block p {
-    color: #555;
-    line-height: 1.8;
-}
-.about-image img {
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 20px 40px rgba(10,28,62,0.15);
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
-/* ========== CORE VALUES ========== */
+.about-text h2 {
+    font-size: 2.8rem;
+    color: var(--dark-blue);
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.about-description p {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+.about-blocks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.about-block {
+    display: flex;
+    gap: 20px;
+    padding: 25px;
+    background: var(--light-bg);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-blue);
+    transition: transform 0.3s;
+}
+
+.about-block:hover {
+    transform: translateX(10px);
+}
+
+.block-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.about-block h3 {
+    color: var(--dark-blue);
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+
+.about-block p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Picha ya About */
+.about-image-container {
+    position: relative;
+}
+
+.about-img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(10, 28, 62, 0.15);
+    position: relative;
+    z-index: 2;
+}
+
+/* Mapambo ya nyuma ya picha */
+.image-decoration {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 100%;
+    height: 100%;
+    border: 4px solid var(--primary-blue);
+    border-radius: 20px;
+    z-index: 1;
+}
+
+/* 2. CORE VALUES SECTION */
 .core-values-section {
-    padding: 80px 10%;
+    padding: 100px 10%;
     background: var(--light-bg);
 }
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--dark-blue);
+}
+
 .values-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
 }
+
 .value-card {
     background: white;
-    padding: 35px 25px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid transparent;
 }
+
 .value-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0,123,255,0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 123, 255, 0.1);
+    border-top-color: var(--primary-blue);
 }
+
 .value-icon {
     width: 70px;
     height: 70px;
-    margin: 0 auto 20px;
     background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-    border-radius: 50%;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
     color: white;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
 }
+
 .value-card h3 {
     color: var(--dark-blue);
-    margin-bottom: 12px;
-    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
 }
+
 .value-card p {
     color: #666;
     line-height: 1.7;
 }
 
-/* ========== TEAM ========== */
+/* 3. TEAM SECTION */
 .team-section {
-    padding: 80px 10%;
+    padding: 100px 10%;
     background: white;
 }
+
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
+
 .team-card {
-    background: var(--light-bg);
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    transition: transform 0.3s;
-}
-.team-card:hover {
-    transform: translateY(-5px);
-}
-.team-photo {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 20px;
-    border-radius: 50%;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
     overflow: hidden;
-    border: 4px solid var(--primary-blue);
+    transition: transform 0.3s;
+    border: 1px solid #f0f0f0;
 }
-.team-photo img {
+
+.team-card:hover {
+    transform: translateY(-10px);
+}
+
+.team-photo-wrapper {
+    height: 300px;
+    width: 100%;
+    background: linear-gradient(135deg, var(--light-bg), #e9ecef);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.team-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 .team-photo-placeholder {
-    width: 100%;
-    height: 100%;
+    width: 150px;
+    height: 150px;
     background: var(--dark-blue);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-size: 3rem;
+    color: var(--primary-blue);
+    font-size: 4rem;
+    border: 5px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
-.team-card h3 {
+
+.team-info {
+    padding: 30px;
+    text-align: center;
+}
+
+.team-info h3 {
     color: var(--dark-blue);
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-bottom: 5px;
 }
+
 .team-role {
+    display: inline-block;
     color: var(--primary-blue);
     font-weight: 600;
+    font-size: 1rem;
     margin-bottom: 15px;
+    background: rgba(0, 123, 255, 0.1);
+    padding: 5px 15px;
+    border-radius: 20px;
 }
+
 .team-bio {
     color: #666;
-    font-size: 0.9rem;
     line-height: 1.6;
-    margin-bottom: 15px;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
 }
-.team-linkedin {
-    display: inline-block;
-    padding: 8px 20px;
+
+.team-socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--light-bg);
+    color: var(--dark-blue);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.team-socials a:hover {
     background: var(--primary-blue);
     color: white;
-    border-radius: 20px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: background 0.3s;
 }
-.team-linkedin:hover {
-    background: var(--dark-blue);
+
+/* RESPONSIVE ZA ABOUT */
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    
+    .about-text h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-overview-section, 
+    .core-values-section, 
+    .team-section {
+        padding: 60px 5%;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
 }
 
 /* ========== SERVICES ========== */

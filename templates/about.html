@@ -15,30 +15,49 @@
 <!-- Company Overview Section -->
 <section class="about-overview-section">
     <div class="about-grid">
+        <!-- Upande wa Kushoto: Maandishi -->
         <div class="about-text">
-            <h2>Who We Are</h2>
-            <p>{{ about.company_overview|linebreaks }}</p>
-
-            {% if about.mission %}
-            <div class="about-block">
-                <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
-                <p>{{ about.mission|linebreaks }}</p>
+            <span class="section-subtitle">WHO WE ARE</span>
+            <h2>Empowering Businesses Through Technology</h2>
+            
+            <div class="about-description">
+                {{ about.company_overview|linebreaks }}
             </div>
-            {% endif %}
 
-            {% if about.vision %}
-            <div class="about-block">
-                <h3><i class="fas fa-eye"></i> Our Vision</h3>
-                <p>{{ about.vision|linebreaks }}</p>
+            <div class="about-blocks-container">
+                {% if about.mission %}
+                <div class="about-block">
+                    <div class="block-icon"><i class="fas fa-bullseye"></i></div>
+                    <div>
+                        <h3>Our Mission</h3>
+                        <p>{{ about.mission }}</p>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if about.vision %}
+                <div class="about-block">
+                    <div class="block-icon"><i class="fas fa-eye"></i></div>
+                    <div>
+                        <h3>Our Vision</h3>
+                        <p>{{ about.vision }}</p>
+                    </div>
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
         </div>
 
-        {% if about.image %}
-        <div class="about-image">
-            <img src="{{ about.image.url }}" alt="About {{ settings.site_name }}">
+        <!-- Upande wa Kulia: Picha -->
+        <div class="about-image-container">
+            {% if about.image %}
+                <img src="{{ about.image.url }}" alt="About {{ settings.site_name }}" class="about-img">
+            {% else %}
+                <!-- Picha ya Default kama Admin hajapakia -->
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Team Working" class="about-img">
+            {% endif %}
+            <!-- Kitufe cha mapambo nyuma ya picha -->
+            <div class="image-decoration"></div>
         </div>
-        {% endif %}
     </div>
 </section>
 
@@ -46,17 +65,16 @@
 {% if core_values %}
 <section class="core-values-section">
     <div class="section-title">
+        <span class="section-subtitle">WHAT DRIVES US</span>
         <h2>Our Core Values</h2>
-        <p>The principles that guide everything we do</p>
     </div>
     <div class="values-grid">
         {% for value in core_values %}
         <div class="value-card">
-            {% if value.icon_class %}
             <div class="value-icon">
-                <i class="{{ value.icon_class }}"></i>
+                <!-- Tumia icon class kutoka database, au default -->
+                <i class="{{ value.icon_class|default:'fas fa-star' }}"></i>
             </div>
-            {% endif %}
             <h3>{{ value.title }}</h3>
             <p>{{ value.description }}</p>
         </div>
@@ -69,31 +87,35 @@
 {% if team_members %}
 <section class="team-section">
     <div class="section-title">
+        <span class="section-subtitle">THE PEOPLE</span>
         <h2>Meet Our Team</h2>
-        <p>Passionate professionals behind {{ settings.site_name }}</p>
     </div>
     <div class="team-grid">
         {% for member in team_members %}
         <div class="team-card">
-            <div class="team-photo">
+            <div class="team-photo-wrapper">
                 {% if member.photo %}
-                    <img src="{{ member.photo.url }}" alt="{{ member.name }}">
+                    <img src="{{ member.photo.url }}" alt="{{ member.name }}" class="team-img">
                 {% else %}
                     <div class="team-photo-placeholder">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-user-tie"></i>
                     </div>
                 {% endif %}
             </div>
-            <h3>{{ member.name }}</h3>
-            <p class="team-role">{{ member.role }}</p>
-            {% if member.bio %}
-            <p class="team-bio">{{ member.bio }}</p>
-            {% endif %}
-            {% if member.linkedin %}
-            <a href="{{ member.linkedin }}" target="_blank" class="team-linkedin">
-                <i class="fab fa-linkedin"></i> Connect
-            </a>
-            {% endif %}
+            
+            <div class="team-info">
+                <h3>{{ member.name }}</h3>
+                <span class="team-role">{{ member.role }}</span>
+                {% if member.bio %}
+                    <p class="team-bio">{{ member.bio }}</p>
+                {% endif %}
+                <div class="team-socials">
+                    {% if member.linkedin %}
+                        <a href="{{ member.linkedin }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    {% endif %}
+                    <!-- Unaweza kuongeza email hapa kama unataka -->
+                </div>
+            </div>
         </div>
         {% endfor %}
     </div>
