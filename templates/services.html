@@ -16,17 +16,16 @@
 {% if core_services %}
 <section class="services-section">
     <div class="section-title">
+        <span class="section-subtitle">WHAT WE DO BEST</span>
         <h2>Core Technology Services</h2>
-        <p>What we do best</p>
     </div>
     <div class="services-grid">
         {% for service in core_services %}
         <div class="service-card">
-            {% if service.icon_class %}
-            <div class="service-icon">
-                <i class="{{ service.icon_class }}"></i>
+            <div class="service-icon-wrapper">
+                <!-- Tumia icon class kutoka database, au default -->
+                <i class="{{ service.icon_class|default:'fas fa-cogs' }}"></i>
             </div>
-            {% endif %}
             <h3>{{ service.title }}</h3>
             <p>{{ service.description }}</p>
         </div>
@@ -39,17 +38,16 @@
 {% if partner_services %}
 <section class="services-section partner-services-section">
     <div class="section-title">
+        <span class="section-subtitle">SPECIALIZED EXPERTISE</span>
         <h2>Additional Services</h2>
         <p>Delivered through qualified specialists and partners</p>
     </div>
     <div class="services-grid">
         {% for service in partner_services %}
         <div class="service-card partner-card">
-            {% if service.icon_class %}
-            <div class="service-icon">
-                <i class="{{ service.icon_class }}"></i>
+            <div class="service-icon-wrapper partner-icon">
+                <i class="{{ service.icon_class|default:'fas fa-handshake' }}"></i>
             </div>
-            {% endif %}
             <h3>{{ service.title }}</h3>
             <p>{{ service.description }}</p>
         </div>
@@ -62,8 +60,9 @@
 {% if target_markets %}
 <section class="target-market-section">
     <div class="section-title">
-        <h2>Who We Serve</h2>
-        <p>We work with a wide range of clients</p>
+        <span class="section-subtitle" style="color: #4da3ff;">WHO WE SERVE</span>
+        <h2>Our Target Market</h2>
+        <p>We work with a wide range of clients across various industries</p>
     </div>
     <div class="target-grid">
         {% for market in target_markets %}
@@ -80,6 +79,7 @@
 {% if approach_steps %}
 <section class="approach-section">
     <div class="section-title">
+        <span class="section-subtitle">HOW WE WORK</span>
         <h2>Our Approach</h2>
         <p>A proven process from idea to delivery</p>
     </div>
